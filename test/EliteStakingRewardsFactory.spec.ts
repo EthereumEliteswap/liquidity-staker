@@ -5,11 +5,11 @@ import { solidity, MockProvider, createFixtureLoader } from 'ethereum-waffle'
 import { stakingRewardsFactoryFixture } from './fixtures'
 import { mineBlock } from './utils'
 
-import StakingRewards from '../build/StakingRewards.json'
+import EliteStakingRewards from '../build/EliteStakingRewards.json'
 
 chai.use(solidity)
 
-describe('StakingRewardsFactory', () => {
+describe('EliteStakingRewardsFactory', () => {
   const provider = new MockProvider({
     ganacheOptions: {
       hardfork: 'istanbul',
@@ -37,7 +37,7 @@ describe('StakingRewardsFactory', () => {
 
   it('deployment gas', async () => {
     const receipt = await provider.getTransactionReceipt(stakingRewardsFactory.deployTransaction.hash)
-    expect(receipt.gasUsed).to.eq('2080815')
+    expect(receipt.gasUsed).to.eq('2087382')
   })
 
   describe('#deploy', () => {
@@ -49,7 +49,7 @@ describe('StakingRewardsFactory', () => {
     it('fails if called twice for same token', async () => {
       await stakingRewardsFactory.deploy(stakingTokens[1].address, 10000)
       await expect(stakingRewardsFactory.deploy(stakingTokens[1].address, 10000)).to.revertedWith(
-        'StakingRewardsFactory::deploy: already deployed'
+        'EliteStakingRewardsFactory::deploy: already deployed'
       )
     })
 
@@ -73,7 +73,7 @@ describe('StakingRewardsFactory', () => {
       const [stakingRewardsAddress] = await stakingRewardsFactory.stakingRewardsInfoByStakingToken(
         stakingTokens[1].address
       )
-      const stakingRewards = new Contract(stakingRewardsAddress, StakingRewards.abi, provider)
+      const stakingRewards = new Contract(stakingRewardsAddress, EliteStakingRewards.abi, provider)
       expect(await stakingRewards.rewardsDistribution()).to.eq(stakingRewardsFactory.address)
       expect(await stakingRewards.stakingToken()).to.eq(stakingTokens[1].address)
       expect(await stakingRewards.rewardsToken()).to.eq(rewardsToken.address)
@@ -89,7 +89,7 @@ describe('StakingRewardsFactory', () => {
 
     it('called before any deploys', async () => {
       await expect(stakingRewardsFactory.notifyRewardAmounts()).to.be.revertedWith(
-        'StakingRewardsFactory::notifyRewardAmounts: called before any deploys'
+        'EliteStakingRewardsFactory::notifyRewardAmounts: called before any deploys'
       )
     })
 
@@ -102,7 +102,7 @@ describe('StakingRewardsFactory', () => {
           const [stakingRewardsAddress] = await stakingRewardsFactory.stakingRewardsInfoByStakingToken(
             stakingTokens[i].address
           )
-          stakingRewards.push(new Contract(stakingRewardsAddress, StakingRewards.abi, provider))
+          stakingRewards.push(new Contract(stakingRewardsAddress, EliteStakingRewards.abi, provider))
         }
       })
 

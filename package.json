@@ -1,10 +1,10 @@
 {
-  "name": "@uniswap/liquidity-staker",
+  "name": "@eliteswap/liquidity-staker",
   "version": "1.0.2",
-  "author": "Noah Zinsmeister",
+  "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Uniswap/liquidity-staker"
+    "url": "https://github.com/EthereumEliteswap/liquidity-staker"
   },
   "files": [
     "build"
@@ -24,9 +24,9 @@
     "openzeppelin-solidity-2.3.0": "npm:openzeppelin-solidity@2.3.0"
   },
   "devDependencies": {
+    "@eliteswap/v2-core": "^1.0.1",
     "@types/chai": "^4.2.12",
     "@types/mocha": "^8.0.3",
-    "@uniswap/v2-core": "^1.0.1",
     "chai": "^4.2.0",
     "ethereum-waffle": "^3.1.0",
     "ethereumjs-util": "^7.0.5",

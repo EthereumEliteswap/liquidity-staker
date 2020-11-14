@@ -6,11 +6,11 @@ import { ecsign } from 'ethereumjs-util'
 import { stakingRewardsFixture } from './fixtures'
 import { REWARDS_DURATION, expandTo18Decimals, mineBlock, getApprovalDigest } from './utils'
 
-import StakingRewards from '../build/StakingRewards.json'
+import EliteStakingRewards from '../build/EliteStakingRewards.json'
 
 chai.use(solidity)
 
-describe('StakingRewards', () => {
+describe('EliteStakingRewards', () => {
   const provider = new MockProvider({
     ganacheOptions: {
       hardfork: 'istanbul',
@@ -32,13 +32,13 @@ describe('StakingRewards', () => {
   })
 
   it('deploy cost', async () => {
-    const stakingRewards = await deployContract(wallet, StakingRewards, [
+    const stakingRewards = await deployContract(wallet, EliteStakingRewards, [
       wallet.address,
       rewardsToken.address,
       stakingToken.address,
     ])
     const receipt = await provider.getTransactionReceipt(stakingRewards.deployTransaction.hash)
-    expect(receipt.gasUsed).to.eq('1418436')
+    expect(receipt.gasUsed).to.eq('1419523')
   })
 
   it('rewardsDuration', async () => {
