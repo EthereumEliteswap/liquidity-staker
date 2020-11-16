@@ -20,7 +20,9 @@
     "lint": "prettier ./test/**/*.ts --check",
     "prepublishOnly": "yarn test"
   },
+  "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@truffle/hdwallet-provider": "^1.2.0",
     "openzeppelin-solidity-2.3.0": "npm:openzeppelin-solidity@2.3.0"
   },
   "devDependencies": {
