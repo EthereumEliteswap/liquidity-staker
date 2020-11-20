@@ -11,8 +11,7 @@
           "evm.deployedBytecode.object",
           "abi",
           "evm.bytecode.sourceMap",
-          "evm.deployedBytecode.sourceMap",
-          "metadata"
+          "evm.deployedBytecode.sourceMap"
         ],
         "": ["ast"]
       }
