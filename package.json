@@ -1,6 +1,6 @@
 {
   "name": "@eliteswap/liquidity-staker",
-  "version": "1.0.3",
+  "version": "2.0.3",
   "author": "",
   "repository": {
     "type": "git",
@@ -29,11 +29,11 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@truffle/hdwallet-provider": "^1.2.0",
+    "@truffle/hdwallet-provider": "^1.2.3",
     "openzeppelin-solidity-2.3.0": "npm:openzeppelin-solidity@2.3.0"
   },
   "devDependencies": {
-    "@eliteswap/v2-core": "^1.0.1",
+    "@eliteswap/v2-core": "2.0.5",
     "@types/chai": "^4.2.12",
     "@types/mocha": "^8.0.3",
     "chai": "^4.2.0",
